@@ -1,99 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Jogo Respostas Poderosas</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f8ff; }
-        .cenario { display: none; margin-top: 20px; }
-        img { max-width: 100%; height: auto; border-radius: 12px; }
-        .resposta { margin-top: 15px; font-weight: bold; color: #2a4d69; }
-        button { margin-top: 20px; padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo: Respostas Poderosas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #eef5f9;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    #texto {
+      font-size: 20px;
+      margin-top: 20px;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3aa655;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2e8643;
+    }
+  </style>
 </head>
 <body>
-    <h1>Jogo: Respostas Poderosas</h1>
-    <div id="cenarioContainer"></div>
-    <button onclick="proximoCenario()">Próximo cenário</button>
+  <h1>Jogo: Respostas Poderosas</h1>
+  <div id="texto">Clica no botão para ver um cenário!</div>
+  <button onclick="mostrarProximo()">Próximo</button>
 
-    <script>
-        const cenarios = [
-            {
-                imagem: "https://i.imgur.com/VFeT1zE.jpg",
-                texto: "Na ginástica, uma menina mais velha diz: 'És bebé, não sabes fazer rodas!'",
-                resposta: "Posso ainda estar a aprender, mas estou a esforçar-me todos os dias!"
-            },
-            {
-                imagem: "https://i.imgur.com/3sRWU5F.jpg",
-                texto: "Na escola, um colega empurra a tua mochila e diz: 'Sai da frente, lerdinha!'",
-                resposta: "Não gosto que me empurres. Podes pedir com respeito."
-            },
-            {
-                imagem: "https://i.imgur.com/yWe3byI.jpg",
-                texto: "Na ginástica, uma menina ri quando cais de um exercício.",
-                resposta: "Cair faz parte de aprender. Eu levanto-me e tento outra vez!"
-            },
-            {
-                imagem: "https://i.imgur.com/f6jglF5.jpg",
-                texto: "Na escola, alguém goza com o teu penteado.",
-                resposta: "Eu gosto assim. Cada um pode ser diferente."
-            },
-            {
-                imagem: "https://i.imgur.com/WQXZcg1.jpg",
-                texto: "Na ginástica, uma colega mais velha diz que estás a atrasar o grupo.",
-                resposta: "Estou a dar o meu melhor e todos temos ritmos diferentes."
-            },
-            {
-                imagem: "https://i.imgur.com/soHTfXb.jpg",
-                texto: "Na escola, alguém esconde o teu estojo de propósito.",
-                resposta: "Não é engraçado mexer nas coisas dos outros. Dá-me o estojo, por favor."
-            },
-            {
-                imagem: "https://i.imgur.com/Z4NSsDp.jpg",
-                texto: "Na ginástica, duas meninas mais velhas cochicham e olham para ti.",
-                resposta: "Prefiro que falem comigo diretamente se têm algo a dizer."
-            },
-            {
-                imagem: "https://i.imgur.com/SB9zjzT.jpg",
-                texto: "Na escola, um colega grita contigo sem motivo.",
-                resposta: "Falar aos gritos não ajuda. Podemos conversar com calma?"
-            },
-            {
-                imagem: "https://i.imgur.com/lRW3Zhn.jpg",
-                texto: "Na ginástica, uma menina diz: 'Nunca vais conseguir fazer o pino!'",
-                resposta: "Não agora, talvez. Mas estou a treinar para conseguir."
-            },
-            {
-                imagem: "https://i.imgur.com/NzXW0t0.jpg",
-                texto: "Na escola, uma colega não te deixa jogar com o grupo.",
-                resposta: "Também tenho o direito de brincar. Podemos incluir toda a gente?"
-            }
-        ];
+  <script>
+    const cenarios = [
+      {
+        cenario: "Ginástica: Uma menina mais velha ri-se e diz 'És bebé, nem consegues fazer o pino!'",
+        resposta: "Resposta poderosa: 'Posso não conseguir agora, mas estou a aprender e vou melhorar!'"
+      },
+      {
+        cenario: "Escola: Um colega diz 'És tão lenta a copiar do quadro! És mesmo burra!'",
+        resposta: "Resposta poderosa: 'Cada um tem o seu ritmo. Estou a fazer o meu melhor e isso é que importa.'"
+      },
+      {
+        cenario: "Ginástica: Outra criança diz 'Não faças connosco, vais só estragar o exercício!'",
+        resposta: "Resposta poderosa: 'Todos temos o direito de participar. Eu também estou aqui para aprender.'"
+      },
+      {
+        cenario: "Escola: Um grupo diz 'Não podes brincar connosco porque tens cabelo feio!'",
+        resposta: "Resposta poderosa: 'O meu cabelo faz parte de quem eu sou. Eu gosto dele e mereço respeito.'"
+      },
+      {
+        cenario: "Ginástica: Dizem-lhe 'Tu não vais conseguir, és fraca demais!'",
+        resposta: "Resposta poderosa: 'Sou forte à minha maneira e vou continuar a tentar, mesmo que seja difícil.'"
+      },
+      {
+        cenario: "Escola: Um rapaz diz 'Vou esconder o teu lanche porque és chata!'",
+        resposta: "Resposta poderosa: 'Isso não é justo. O meu lanche é meu e não se deve brincar com isso.'"
+      },
+      {
+        cenario: "Ginástica: Dizem-lhe 'És a pior da turma, nem sei porque vens cá!'",
+        resposta: "Resposta poderosa: 'Venho cá para aprender e divertir-me, e isso é o mais importante.'"
+      },
+      {
+        cenario: "Escola: Um colega empurra e diz 'Sai da frente, ninguém gosta de ti!'",
+        resposta: "Resposta poderosa: 'Empurrar não é uma forma de resolver as coisas. Eu mereço ser tratada com respeito.'"
+      },
+      {
+        cenario: "Ginástica: Uma menina diz 'Não és boa o suficiente para a nossa equipa.'",
+        resposta: "Resposta poderosa: 'Eu posso não ser perfeita, mas esforço-me e tenho valor para a equipa.'"
+      },
+      {
+        cenario: "Escola: Um grupo grita 'Ninguém te quer aqui!' enquanto ela se aproxima.",
+        resposta: "Resposta poderosa: 'Eu tenho o direito de estar aqui e mereço ser tratada com gentileza.'"
+      }
+    ];
 
-        let indiceAtual = 0;
+    let indiceAtual = 0;
+    let mostrarResposta = false;
 
-        function proximoCenario() {
-            const container = document.getElementById("cenarioContainer");
-            if (indiceAtual >= cenarios.length) {
-                container.innerHTML = "<h2>Parabéns! Terminaste todos os cenários!</h2>";
-                return;
-            }
+    function mostrarProximo() {
+      const textoDiv = document.getElementById("texto");
 
-            const cenario = cenarios[indiceAtual];
-            container.innerHTML = `
-                <div class="cenario">
-                    <img src="${cenario.imagem}" alt="Cenário ${indiceAtual + 1}">
-                    <p>${cenario.texto}</p>
-                    <p class="resposta">Resposta poderosa: "${cenario.resposta}"</p>
-                </div>
-            `;
-            indiceAtual++;
-        }
-
-        // Mostrar o primeiro cenário automaticamente ao carregar
-        window.onload = proximoCenario;
-    </script>
+      if (!mostrarResposta) {
+        textoDiv.textContent = cenarios[indiceAtual].cenario;
+        mostrarResposta = true;
+      } else {
+        textoDiv.textContent = cenarios[indiceAtual].resposta;
+        mostrarResposta = false;
+        indiceAtual = (indiceAtual + 1) % cenarios.length;
+      }
+    }
+  </script>
 </body>
 </html>
