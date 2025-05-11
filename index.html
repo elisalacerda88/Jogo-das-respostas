@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo Respostas Poderosas</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f8ff; }
+        .cenario { display: none; margin-top: 20px; }
+        img { max-width: 100%; height: auto; border-radius: 12px; }
+        .resposta { margin-top: 15px; font-weight: bold; color: #2a4d69; }
+        button { margin-top: 20px; padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Jogo: Respostas Poderosas</h1>
+    <div id="cenarioContainer"></div>
+    <button onclick="proximoCenario()">Próximo cenário</button>
+
+    <script>
+        const cenarios = [
+            {
+                imagem: "https://i.imgur.com/VFeT1zE.jpg",
+                texto: "Na ginástica, uma menina mais velha diz: 'És bebé, não sabes fazer rodas!'",
+                resposta: "Posso ainda estar a aprender, mas estou a esforçar-me todos os dias!"
+            },
+            {
+                imagem: "https://i.imgur.com/3sRWU5F.jpg",
+                texto: "Na escola, um colega empurra a tua mochila e diz: 'Sai da frente, lerdinha!'",
+                resposta: "Não gosto que me empurres. Podes pedir com respeito."
+            },
+            {
+                imagem: "https://i.imgur.com/yWe3byI.jpg",
+                texto: "Na ginástica, uma menina ri quando cais de um exercício.",
+                resposta: "Cair faz parte de aprender. Eu levanto-me e tento outra vez!"
+            },
+            {
+                imagem: "https://i.imgur.com/f6jglF5.jpg",
+                texto: "Na escola, alguém goza com o teu penteado.",
+                resposta: "Eu gosto assim. Cada um pode ser diferente."
+            },
+            {
+                imagem: "https://i.imgur.com/WQXZcg1.jpg",
+                texto: "Na ginástica, uma colega mais velha diz que estás a atrasar o grupo.",
+                resposta: "Estou a dar o meu melhor e todos temos ritmos diferentes."
+            },
+            {
+                imagem: "https://i.imgur.com/soHTfXb.jpg",
+                texto: "Na escola, alguém esconde o teu estojo de propósito.",
+                resposta: "Não é engraçado mexer nas coisas dos outros. Dá-me o estojo, por favor."
+            },
+            {
+                imagem: "https://i.imgur.com/Z4NSsDp.jpg",
+                texto: "Na ginástica, duas meninas mais velhas cochicham e olham para ti.",
+                resposta: "Prefiro que falem comigo diretamente se têm algo a dizer."
+            },
+            {
+                imagem: "https://i.imgur.com/SB9zjzT.jpg",
+                texto: "Na escola, um colega grita contigo sem motivo.",
+                resposta: "Falar aos gritos não ajuda. Podemos conversar com calma?"
+            },
+            {
+                imagem: "https://i.imgur.com/lRW3Zhn.jpg",
+                texto: "Na ginástica, uma menina diz: 'Nunca vais conseguir fazer o pino!'",
+                resposta: "Não agora, talvez. Mas estou a treinar para conseguir."
+            },
+            {
+                imagem: "https://i.imgur.com/NzXW0t0.jpg",
+                texto: "Na escola, uma colega não te deixa jogar com o grupo.",
+                resposta: "Também tenho o direito de brincar. Podemos incluir toda a gente?"
+            }
+        ];
+
+        let indiceAtual = 0;
+
+        function proximoCenario() {
+            const container = document.getElementById("cenarioContainer");
+            if (indiceAtual >= cenarios.length) {
+                container.innerHTML = "<h2>Parabéns! Terminaste todos os cenários!</h2>";
+                return;
+            }
+
+            const cenario = cenarios[indiceAtual];
+            container.innerHTML = `
+                <div class="cenario">
+                    <img src="${cenario.imagem}" alt="Cenário ${indiceAtual + 1}">
+                    <p>${cenario.texto}</p>
+                    <p class="resposta">Resposta poderosa: "${cenario.resposta}"</p>
+                </div>
+            `;
+            indiceAtual++;
+        }
+
+        // Mostrar o primeiro cenário automaticamente ao carregar
+        window.onload = proximoCenario;
+    </script>
+</body>
+</html>
